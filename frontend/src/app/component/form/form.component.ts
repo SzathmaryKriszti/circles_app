@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {FormDataModel} from "../../model/formData.model";
+import {FormService} from "../../service/form.service";
 
 @Component({
   selector: 'app-form',
@@ -9,7 +11,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class FormComponent implements OnInit {
 
   basicForm: FormGroup
-  constructor() {
+  constructor(private formService: FormService) {
     this.basicForm = new FormGroup({
       'name': new FormControl(''),
       'age': new FormControl(18)
@@ -19,5 +21,12 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleSubmit(){}
+  handleSubmit(){
+    const data: FormDataModel = this.basicForm.value;
+     this.formService.sendFormData(data).subscribe({
+        next: (value) => console.log("Sikeres mentes"),
+       error: (err) => console.log(err),
+       complete: () => ("Lefutott a complete ag.")
+      })
+  }
 }
