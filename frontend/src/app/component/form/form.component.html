@@ -1,0 +1,7 @@
+<form [formGroup]="basicForm" (ngSubmit)="handleSubmit()" >
+
+  <input formControlName="name" type="text" placeholder="Name">
+  <input formControlName="age" type="number" placeholder="Age">
+
+  <button type="submit">Submit</button>
+</form>
