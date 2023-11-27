@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './component/form/form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { NumberComponent } from './component/number/number.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent
+    FormComponent,
+    NumberComponent
   ],
   imports: [
     BrowserModule,

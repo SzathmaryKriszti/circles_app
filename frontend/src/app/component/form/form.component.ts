@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {FormDataModel} from "../../model/formData.model";
 import {FormService} from "../../service/form.service";
+import {NumberService} from "../../service/number.service";
 
 @Component({
   selector: 'app-form',
@@ -11,7 +12,10 @@ import {FormService} from "../../service/form.service";
 export class FormComponent implements OnInit {
 
   basicForm: FormGroup
-  constructor(private formService: FormService) {
+  randomNumber: number = 0;
+  constructor(
+    private numberService:NumberService,
+    private formService: FormService) {
     this.basicForm = new FormGroup({
       'name': new FormControl(''),
       'age': new FormControl(18)
@@ -19,6 +23,10 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.numberService.randomNumberSubject.subscribe({
+      next: (value) => this.randomNumber = value,
+      error: (err) => console.log(err)
+    })
   }
 
   handleSubmit(){
