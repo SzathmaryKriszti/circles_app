@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package hu.progmasters.thefriendzoneapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
