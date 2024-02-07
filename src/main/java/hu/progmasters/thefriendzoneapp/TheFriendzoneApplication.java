@@ -1,13 +1,13 @@
-package com.example.myfirstapp;
+package hu.progmasters.thefriendzoneapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyFirstAppApplication {
+public class TheFriendzoneApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MyFirstAppApplication.class, args);
+        SpringApplication.run(TheFriendzoneApplication.class, args);
     }
 
 }
