@@ -5,6 +5,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { WelcomeComponent } from './component/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TranslocoRootModule
   ],
   providers: [],
   bootstrap: [AppComponent]
