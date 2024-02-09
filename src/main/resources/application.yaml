@@ -20,7 +20,7 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
-    cors-policies: http://localhost:4200/, http://127.0.0.1:4200/, http://[::1]:4200/
+
 
 logging:
   level:
@@ -29,3 +29,5 @@ logging:
     org.hibernate: error
   pattern:
     console: "%cyan(%d{yyyy-MM-dd HH:mm:ss}) [%green(%thread)] %highlight(%-5level) %yellow(%logger{36}) - %msg%n"
+
+cors-policies: http://localhost:4200, http://127.0.0.1:4200

@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class SpringWebConfig implements WebMvcConfigurer {
 
 
-    @Value("${spring.jpa.cors-policies}")
+    @Value("${cors-policies}")
     private String[] corsPolicies;
 
     @Bean
