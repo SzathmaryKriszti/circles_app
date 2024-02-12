@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { WelcomeComponent } from './component/welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslocoRootModule } from './transloco-root.module';
+import {RouterOutlet} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TranslocoRootModule } from './transloco-root.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    RouterOutlet
   ],
   providers: [],
   bootstrap: [AppComponent]
