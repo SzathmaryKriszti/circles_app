@@ -4,14 +4,16 @@ import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { WelcomeComponent } from './component/welcome/welcome.component';
-import { AppRoutingModule } from './app-routing.module';
-import { TranslocoRootModule } from './transloco-root.module';
+import { AppRoutingModule } from './routing/app-routing.module';
+import { TranslocoRootModule } from './transloco/transloco-root.module';
+import {NavbarComponent} from "./component/navbar/navbar.component";
 import {RouterOutlet} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,4 +26,6 @@ import {RouterOutlet} from "@angular/router";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
