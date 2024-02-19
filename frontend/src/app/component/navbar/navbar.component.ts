@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslocoService} from "@ngneat/transloco";
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translocoService: TranslocoService) { }
 
   ngOnInit(): void {
   }
 
+  changeLanguage(language: string) {
+    this.translocoService.setActiveLang(language);
+    localStorage.setItem('language', language);
+  }
 }
