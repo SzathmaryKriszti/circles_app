@@ -1,11 +1,36 @@
 package hu.progmasters.thefriendzoneapp.dto.incoming;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 public class UserCreationCommand {
 
+    @NotNull
+    @NotEmpty
     private String name;
+
+    @NotNull
+    @NotEmpty
     private String username;
+
+    @NotNull
+    @NotEmpty
     private String email;
+
+    @NotNull
+    @NotEmpty
     private String password;
+
+    @NotNull
+    @NotEmpty
+    private String matchingPassword;
+
+
+
+
+
+
+
 
     public String getName() {
         return name;
@@ -37,5 +62,13 @@ public class UserCreationCommand {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
     }
 }

@@ -39,12 +39,12 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private BlogUser postOwner;
+    private AppUser postOwner;
 
     public Post() {
     }
 
-    public Post(PostCreationCommand command, Group group, BlogUser user) {
+    public Post(PostCreationCommand command, Group group, AppUser user) {
         this.title = command.getTitle();
         this.postBody = command.getPostBody();
         this.imgUrl = command.getImgUrl();
@@ -118,11 +118,11 @@ public class Post {
         this.group = group;
     }
 
-    public BlogUser getPostOwner() {
+    public AppUser getPostOwner() {
         return postOwner;
     }
 
-    public void setPostOwner(BlogUser postOwner) {
+    public void setPostOwner(AppUser postOwner) {
         this.postOwner = postOwner;
     }
 

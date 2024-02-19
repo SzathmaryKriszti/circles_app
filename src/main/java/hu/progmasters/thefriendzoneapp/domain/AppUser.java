@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class BlogUser {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,7 +52,7 @@ public class BlogUser {
     private List<Post> posts;
 
 
-    public BlogUser(UserCreationCommand command) {
+    public AppUser(UserCreationCommand command) {
         this.name = command.getName();
         this.imgUrl = "https://images.unsplash.com/photo-1683523946422-64283e8af4d5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bm8lMjBwaWN0dXJlfGVufDB8fDB8fHww";
         this.username = command.getUsername();
@@ -66,7 +66,7 @@ public class BlogUser {
         this.posts = new ArrayList<>();
     }
 
-    public BlogUser() {
+    public AppUser() {
     }
 
     public Long getId() {

@@ -33,15 +33,15 @@ public class Group {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private BlogUser owner;
+    private AppUser owner;
 
     @ManyToMany(mappedBy = "groups")
-    private List<BlogUser>  members;
+    private List<AppUser>  members;
 
     public Group() {
     }
 
-    public Group(GroupCreationCommand command, BlogUser user) {
+    public Group(GroupCreationCommand command, AppUser user) {
         this.groupName = command.getGroupName();
         this.imgUrl = command.getImgUrl();
         this.createdAt = LocalDateTime.now();
@@ -102,23 +102,23 @@ public class Group {
         this.createdAt = createdAt;
     }
 
-    public BlogUser getOwner() {
+    public AppUser getOwner() {
         return owner;
     }
 
-    public void setOwner(BlogUser owner) {
+    public void setOwner(AppUser owner) {
         this.owner = owner;
     }
 
-    public List<BlogUser> getMembers() {
+    public List<AppUser> getMembers() {
         return members;
     }
 
-    public void setMembers(List<BlogUser> members) {
+    public void setMembers(List<AppUser> members) {
         this.members = members;
     }
 
-    public void addUser(BlogUser user) {
+    public void addUser(AppUser user) {
         this.members.add(user);
     }
 

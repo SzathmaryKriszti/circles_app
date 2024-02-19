@@ -34,14 +34,14 @@ public class Event {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private BlogUser eventOwner;
+    private AppUser eventOwner;
 
     private boolean isDeleted;
 
     public Event() {
     }
 
-    public Event(EventCreationCommand command, Group group, BlogUser user) {
+    public Event(EventCreationCommand command, Group group, AppUser user) {
         this.title = command.getTitle();
         this.description = command.getDescription();
         this.imgUrl = command.getImgUrl();
@@ -108,11 +108,11 @@ public class Event {
         this.id = id;
     }
 
-    public BlogUser getEventOwner() {
+    public AppUser getEventOwner() {
         return eventOwner;
     }
 
-    public void setEventOwner(BlogUser eventOwner) {
+    public void setEventOwner(AppUser eventOwner) {
         this.eventOwner = eventOwner;
     }
 
