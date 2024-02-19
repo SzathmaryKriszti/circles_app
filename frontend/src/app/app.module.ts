@@ -8,12 +8,14 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { TranslocoRootModule } from './transloco/transloco-root.module';
 import {NavbarComponent} from "./component/navbar/navbar.component";
 import {RouterOutlet} from "@angular/router";
+import { RegistrationComponent } from './component/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
