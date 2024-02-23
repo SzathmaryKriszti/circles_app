@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>hu.progmasters</groupId>
-    <artifactId>the-friendzone-app</artifactId>
+    <artifactId>circles-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>the-friendzone-app</name>
-    <description>The friendzone app</description>
+    <name>circles-app</name>
+    <description>Circles app</description>
     <properties>
 
     </properties>
