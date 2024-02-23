@@ -2,5 +2,28 @@
   "welcomePage": {
     "title": "Friendzone - soon...",
     "intro": "Soon you'll be able to access my favourite hobby project called The FriendZone.\nIn this app you can organise events and share your experiences with your friends.\nBe sure to check back later.."
+  },
+  "loginPage": {
+    "login": "Login",
+    "username": "Username",
+    "enterUsername": "Please enter your username",
+    "password": "Password",
+    "enterPassword": "Please enter a password",
+    "goToReg": "Don't have an account? ",
+    "register": "Register!"
+  },
+  "registrationPage": {
+    "registration": "Registration",
+    "full": "Full Name",
+    "enterName": "Please enter your name",
+    "username": "Username",
+    "enterUsername": "Please enter your username",
+    "enterEmail": "Please enter your email",
+    "toggle": "Toggle password",
+    "password": "Password",
+    "enterPassword": "Please enter a password",
+    "register": "Register",
+    "already": "Already have an account?",
+    "login": "Login here"
   }
 }

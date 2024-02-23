@@ -3,5 +3,28 @@
     "title": "FriendZone - hamarosan...",
     "intro": "Nemsokára ezen az oldalon elérhetō lesz kedvenc hobby projektem, a The FriendZone. \nItt barátaiddal kényelmesen szervezhetitek eseményeiteket, megoszthatjátok egymással élményeiteket. \nMindenképp nézz vissza késōbb.."
 
+  },
+  "loginPage": {
+    "login": "Bejelentkezés",
+    "username": "Felhasználónév",
+    "enterUsername": "Kérlek, add meg a felhasználóneved",
+    "password": "Jelszó",
+    "enterPassword": "Kérlek, add meg a jelszavad",
+    "goToReg": "Nincs saját fiókod? ",
+    "register": "Regisztrálj!"
+  },
+  "registrationPage": {
+    "registration": "Regisztráció",
+    "full": "Teljes név",
+    "username": "Felhasználónév",
+    "enterName": "Kérlek, add meg a neved",
+    "enterUsername": "Kérlek, add meg a felhasználóneved",
+    "enterEmail": "Kérlek, add meg az email címed",
+    "toggle": "Mutasd a jelszavam",
+    "password": "Jelszó",
+    "enterPassword": "Kérlek, add meg a jelszavad",
+    "register": "Regisztrálok",
+    "already": "Már van fiókod?",
+    "login": "Jelentkezz be itt!"
   }
 }
