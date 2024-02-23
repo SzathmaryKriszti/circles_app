@@ -1,6 +1,6 @@
-package hu.progmasters.thefriendzoneapp.domain;
+package hu.progmasters.circlesapp.domain;
 
-import hu.progmasters.thefriendzoneapp.dto.incoming.UserCreationCommand;
+import hu.progmasters.circlesapp.dto.incoming.UserCreationCommand;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

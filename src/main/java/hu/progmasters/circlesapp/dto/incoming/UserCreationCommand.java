@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp.dto.incoming;
+package hu.progmasters.circlesapp.dto.incoming;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -24,11 +24,6 @@ public class UserCreationCommand {
     @NotNull
     @NotEmpty
     private String matchingPassword;
-
-
-
-
-
 
 
 

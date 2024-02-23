@@ -1,9 +1,11 @@
-package hu.progmasters.thefriendzoneapp.repository;
+package hu.progmasters.circlesapp.repository;
 
-import hu.progmasters.thefriendzoneapp.domain.AppUser;
+import hu.progmasters.circlesapp.domain.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+
+    AppUser findByUsername (String username);
 }

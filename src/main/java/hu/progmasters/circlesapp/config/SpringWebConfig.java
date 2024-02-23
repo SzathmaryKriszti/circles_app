@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp.config;
+package hu.progmasters.circlesapp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;

@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp.dto.incoming;
+package hu.progmasters.circlesapp.dto.incoming;
 
 public class CommentCreationCommand {
     private String commentBody;

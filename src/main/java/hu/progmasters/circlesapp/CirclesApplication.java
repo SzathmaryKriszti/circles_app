@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp;
+package hu.progmasters.circlesapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

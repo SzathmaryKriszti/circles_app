@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp;
+package hu.progmasters.circlesapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

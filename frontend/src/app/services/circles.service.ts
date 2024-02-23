@@ -6,7 +6,7 @@ const BASE_URL: string = environment.BASE_URL;
 @Injectable({
   providedIn: 'root'
 })
-export class FriendzoneService {
+export class CirclesService {
 
   constructor() { }
 }

@@ -1,6 +1,6 @@
-package hu.progmasters.thefriendzoneapp.domain;
+package hu.progmasters.circlesapp.domain;
 
-import hu.progmasters.thefriendzoneapp.dto.incoming.PostCreationCommand;
+import hu.progmasters.circlesapp.dto.incoming.PostCreationCommand;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package hu.progmasters.thefriendzoneapp.domain;
+package hu.progmasters.circlesapp.domain;
 
 public enum UserRole {
 
