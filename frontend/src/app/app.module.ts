@@ -9,13 +9,15 @@ import { TranslocoRootModule } from './transloco/transloco-root.module';
 import {NavbarComponent} from "./component/navbar/navbar.component";
 import {RouterOutlet} from "@angular/router";
 import { RegistrationComponent } from './component/registration/registration.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     NavbarComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
