@@ -1,7 +1,7 @@
 {
   "welcomePage": {
-    "title": "Friendzone - soon...",
-    "intro": "Soon you'll be able to access my favourite hobby project called The FriendZone.\nIn this app you can organise events and share your experiences with your friends.\nBe sure to check back later.."
+    "title": "Circles - soon...",
+    "intro": "Soon you'll be able to access my favourite hobby project called Circles.\nIn this app you can organise events and share your experiences with your friends.\nBe sure to check back later.."
   },
   "loginPage": {
     "login": "Login",
@@ -21,9 +21,16 @@
     "enterEmail": "Please enter your email",
     "toggle": "Toggle password",
     "password": "Password",
+    "confirm": "Confirm password",
     "enterPassword": "Please enter a password",
     "register": "Register",
     "already": "Already have an account?",
     "login": "Login here"
+  },
+  "navbar": {
+    "account": "Account",
+    "myGroups": "My Groups",
+    "find": "Find Group",
+    "login": "Login"
   }
 }

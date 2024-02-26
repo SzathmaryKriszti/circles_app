@@ -1,7 +1,7 @@
 {
   "welcomePage": {
-    "title": "FriendZone - hamarosan...",
-    "intro": "Nemsokára ezen az oldalon elérhetō lesz kedvenc hobby projektem, a The FriendZone. \nItt barátaiddal kényelmesen szervezhetitek eseményeiteket, megoszthatjátok egymással élményeiteket. \nMindenképp nézz vissza késōbb.."
+    "title": "Circles - hamarosan...",
+    "intro": "Nemsokára ezen az oldalon elérhetō lesz kedvenc hobby projektem, a Circles. \nItt barátaiddal kényelmesen szervezhetitek eseményeiteket, megoszthatjátok egymással élményeiteket. \nMindenképp nézz vissza késōbb.."
 
   },
   "loginPage": {
@@ -22,9 +22,16 @@
     "enterEmail": "Kérlek, add meg az email címed",
     "toggle": "Mutasd a jelszavam",
     "password": "Jelszó",
+    "confirm": "Jelszó ismétlése",
     "enterPassword": "Kérlek, add meg a jelszavad",
     "register": "Regisztrálok",
     "already": "Már van fiókod?",
     "login": "Jelentkezz be itt!"
+  },
+  "navbar": {
+    "account": "Saját fiók",
+    "myGroups": "Csoportjaim",
+    "find": "Csoportkereső",
+    "login": "Bejelentkezés"
   }
 }

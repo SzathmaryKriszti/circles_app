@@ -21,7 +21,7 @@ public class AppUserController {
         this.appUserService = appUserService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration")
     public ResponseEntity<Void> register(@RequestBody UserCreationCommand userCreationCommand) {
         appUserService.registerAppUser(userCreationCommand);
         return new ResponseEntity<>(HttpStatus.CREATED);
