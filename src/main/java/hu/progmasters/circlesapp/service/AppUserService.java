@@ -32,8 +32,8 @@ public class AppUserService implements UserDetailsService {
 
     public AppUser registerAppUser(UserCreationCommand userCreationCommand) {
 
+        userCreationCommand.setPassword(passwordEncoder.encode(userCreationCommand.getPassword()));
         AppUser appUser = new AppUser(userCreationCommand);
-        appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
         return appUserRepository.save(appUser);
     }
 
