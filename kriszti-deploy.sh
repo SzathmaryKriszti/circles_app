@@ -1,7 +1,7 @@
 #!/bin/bash
 #UPDATE THESE LINES ACCORDING TO YOUR PROJECT STRUCTURE
-PRIVATE_KEY_PATH=/Users/kriszti/IdeaProjects/friendzone-project/keys/krisztina.pem
-SITE_DOMAIN=thefriendzone.kriszti.app
+PRIVATE_KEY_PATH=/Users/kriszti/Documents/keys/krisztina.pem
+SITE_DOMAIN=circles.kriszti.app
 SERVER_USER=ubuntu
 FRONTEND_DIR="./frontend"
 BACKEND_BUILD_DIR="./target"
@@ -22,7 +22,7 @@ ng build
 cd ..
 mvn clean package -DskipTests=true
 ## Get backend filename
-JAR_FILE_NAME='the-friendzone-app-1.0-SNAPSHOT.jar'
+JAR_FILE_NAME='circles-app-1.0-SNAPSHOT.jar'
 # Kill running process on server
 ssh -i ${PRIVATE_KEY_PATH} ${SERVER_USER}@${SITE_DOMAIN} "$REMOTE_SHUTDOWN_SCRIPT $REMOTE_BACKEND_DIR/$JAR_FILE_NAME"
 # Delete all existing frontend files
