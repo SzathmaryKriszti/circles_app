@@ -33,5 +33,13 @@
     "myGroups": "Csoportjaim",
     "find": "Csoportkereső",
     "login": "Bejelentkezés"
+  },
+  "accountPage": {
+    "text": "Ebben a szekcióban a jövõben írhatsz majd egy rövid bemutatkozást, kedvenc idõtöltésedrõl, arról, amit szívesen megosztanál magadról.",
+    "relations": "kapcsolat",
+    "in": "csoport, aminek tagja vagy",
+    "groups": "Csoportod",
+    "username": "Felhasználónév",
+    "role": "Jogosultság"
   }
 }

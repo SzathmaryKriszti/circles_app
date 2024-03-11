@@ -32,5 +32,13 @@
     "myGroups": "Meine Gruppen",
     "find": "Gruppe Finden",
     "login": "Anmelden"
+  },
+  "accountPage": {
+    "text": "In diesem Abschnitt kannst du im Zukunft eine kurze Einführung über deine Lieblingsbeschäftigung schreiben, und darüber, was du über dich selbst mitteilen möchtest.",
+    "relations": "Beziehung",
+    "in": "Gruppen in der du Mitglied bist",
+    "groups": "Deine Gruppen",
+    "username": "Benutzername",
+    "role": "Rolle"
   }
 }

@@ -2,8 +2,8 @@ package hu.progmasters.circlesapp.domain;
 
 public enum UserRole {
 
-    ROLE_USER("User"),
-    ROLE_ADMIN("Admin");
+    ROLE_USER("USER"),
+    ROLE_ADMIN("ADMIN");
 
 
     private final String displayRole;

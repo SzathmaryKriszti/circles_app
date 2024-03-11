@@ -10,6 +10,7 @@ import {NavbarComponent} from "./component/navbar/navbar.component";
 import {RouterOutlet} from "@angular/router";
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './component/login/login.component';
     WelcomeComponent,
     NavbarComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

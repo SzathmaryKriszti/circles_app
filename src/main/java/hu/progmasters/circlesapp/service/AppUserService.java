@@ -2,6 +2,7 @@ package hu.progmasters.circlesapp.service;
 
 import hu.progmasters.circlesapp.domain.AppUser;
 import hu.progmasters.circlesapp.dto.incoming.UserCreationCommand;
+import hu.progmasters.circlesapp.dto.outgoing.AppUserProfileDetails;
 import hu.progmasters.circlesapp.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -54,4 +55,8 @@ public class AppUserService implements UserDetailsService {
     }
 
 
+    public AppUserProfileDetails getUserProfileDetails(String username) {
+        AppUser appUser = findUserByUsername(username);
+        return new AppUserProfileDetails(appUser);
+    }
 }

@@ -32,5 +32,13 @@
     "myGroups": "My Groups",
     "find": "Find Group",
     "login": "Login"
+  },
+  "accountPage": {
+    "text": "In this section you will have an option to add a short introduction, list your interests or any information you would like to share. Stay tuned.",
+    "relations": "relations",
+    "in": "groups you're in",
+    "groups": "Your groups",
+    "username": "Username",
+    "role": "Role"
   }
 }
