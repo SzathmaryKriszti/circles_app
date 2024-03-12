@@ -7,7 +7,7 @@ import {UserProfileComponent} from "../component/user-profile/user-profile.compo
 
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent, pathMatch: 'full'},
+  {path: '', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent, pathMatch: 'full'},
   {path: 'me', component: UserProfileComponent, pathMatch: 'full'},

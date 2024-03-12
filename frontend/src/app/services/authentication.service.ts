@@ -4,8 +4,9 @@ import {Observable} from "rxjs";
 import {UserCreationCommandModel} from "../models/user-creation-command.model";
 import {LoginFormModel} from "../models/login-form.model";
 import {AppUserDetailsModel} from "../models/app-user-details.model";
+import {environment} from "../../environments/environment";
 
-const BASE_URL: string = 'http://localhost:8080/api/users';
+const BASE_URL: string =  environment.BASE_URL + '/api/users';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return sessionStorage.getItem('user');
+  }
+
+  logout(): Observable<any> {
+    return this.http.get(BASE_URL + '/logout');
   }
 }
