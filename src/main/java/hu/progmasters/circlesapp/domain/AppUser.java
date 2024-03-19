@@ -69,6 +69,10 @@ public class AppUser {
     public AppUser() {
     }
 
+    public void addGroup(Group group) {
+        this.groups.add(group);
+    }
+
     public Long getId() {
         return id;
     }
@@ -164,5 +168,6 @@ public class AppUser {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
 
 }
