@@ -41,5 +41,20 @@
     "groups": "Csoportod",
     "username": "Felhasználónév",
     "role": "Jogosultság"
+  },
+  "groupForm": {
+    "newGroup": "Új csoport",
+    "groupName": "Csoport neve",
+    "enterGroupName": "Kérlek, add meg a csoport nevét",
+    "groupImg": "Kép url (opcionális)",
+    "create": "Létrehozás"
+  },
+  "myGroupsPage": {
+    "myGroups": "Csoportjaim",
+    "intro": "Itt láthatod azokat a csoportokat, amikhez csatlakoztál. Létrehozhatsz posztokat vagy eseményeket, nézelõdhetsz barátaid posztjai, eseményei között.",
+    "newGroup": "Új csoport",
+    "createNewGroup": "Új csoport létrehozása",
+    "owner": "Létrehozta: "
+
   }
 }

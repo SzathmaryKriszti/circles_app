@@ -40,5 +40,20 @@
     "groups": "Your groups",
     "username": "Username",
     "role": "Role"
+  },
+  "groupForm": {
+    "newGroup": "New Group",
+    "groupName": "Group name",
+    "enterGroupName": "Please enter a group name",
+    "groupImg": "Image url (optional)",
+    "create": "Create"
+  },
+  "myGroupsPage": {
+    "myGroups": "My Groups",
+    "intro": "These are the groups you have created or joined so far. You may add new posts and events to them, or browse posts and events created by your friends.",
+    "newGroup": "New Group",
+    "createNewGroup": "Create new group",
+    "owner": "Owner: "
+
   }
 }

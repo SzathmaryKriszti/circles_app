@@ -40,5 +40,20 @@
     "groups": "Deine Gruppen",
     "username": "Benutzername",
     "role": "Rolle"
+  },
+  "groupForm": {
+    "newGroup": "Neue Gruppe",
+    "groupName": "Gruppenname",
+    "enterGroupName": "Bitte, geben Sie einen Gruppennamen ein",
+    "groupImg": "Bild url (optional)",
+    "create": "Erstellen"
+  },
+  "myGroupsPage": {
+    "myGroups": "Meine Gruppen",
+    "intro": "Auf dieser Seite kannst du deine Gruppen sehen, wo du dazugestoßen hast. Erstell neue Post oder Veranstaltung, oder such nach der Posts und Veranstaltungen deiner Freunde.",
+    "newGroup": "Neue Gruppe",
+    "createNewGroup": "Neue Gruppe erstellen",
+    "owner": "Inhaber: "
+
   }
 }

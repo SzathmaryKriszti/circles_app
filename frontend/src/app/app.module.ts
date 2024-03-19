@@ -12,6 +12,8 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { LoginComponent } from './component/login/login.component';
 import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import {AuthInterceptor} from "./utils/auth.interceptor";
+import { GroupFormComponent } from './component/group-form/group-form.component';
+import { MyGroupsComponent } from './component/my-groups/my-groups.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {AuthInterceptor} from "./utils/auth.interceptor";
     NavbarComponent,
     RegistrationComponent,
     LoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    GroupFormComponent,
+    MyGroupsComponent
   ],
   imports: [
     BrowserModule,
