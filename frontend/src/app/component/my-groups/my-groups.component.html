@@ -1,1 +1,118 @@
-<p>my-groups works!</p>
+<div class="bg-white dark:bg-gray-900 dark:text-gray-50 py-6 sm:py-8 lg:py-12" *transloco="let t, read:'myGroupsPage'">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 dark:text-white md:mb-6 lg:text-3xl">{{t('myGroups')}}</h2>
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <!-- text - start -->
+        <div class="mb-10 md:mb-16">
+
+            <p class="mx-auto max-w-screen-md text-center md:text-gray-500 dark:text-white md:text-lg">{{t('intro')}}</p>
+        </div>
+        <!-- text - end -->
+
+        <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+            <!-- article - start -->
+
+            <!-- create group start -->
+            <div (click)="createGroup()">
+                <div
+                        class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
+                    <img src="https://images.unsplash.com/photo-1620924049153-4d32fcbe88fe?q=80&w=3032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                         alt=""
+                         class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+                         loading="lazy"/>
+
+                    <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
+
+                    <div class="relative mt-auto p-4">
+                        <span class="block text-sm text-gray-200"></span>
+                        <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">{{t('newGroup')}}</h2>
+                        <span class="font-semibold text-indigo-300">{{t('createNewGroup')}}</span>
+                    </div>
+                </div>
+                <div class="card-text">
+                </div>
+
+                <div class="card-text">
+                </div>
+            </div>
+            <!-- create group end -->
+
+
+            <div *ngFor="let group of groups" class="relative">
+                <a routerLink="/groupOverview/{{group.id}}"
+                   class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
+                    <img [src]="group.imgUrl" alt=""
+                         class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+                         loading="lazy"/>
+
+                    <div
+                            class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
+
+                    <div class="relative mt-auto p-4">
+
+                        <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">{{group.name}}</h2>
+                        <span class="font-semibold text-indigo-300">{{t('owner')}}{{group.owner}}</span>
+                    </div>
+                    <button type="button" (click)="showGroupDetails(group.id)" class="mb-5 w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-500 dark:border-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                            <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                        </svg>
+                    </button>
+
+                </a>
+
+                <!-- Post badge start-->
+
+                <div class="flex gap-1 items-center bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full p-2 absolute top-0 ml-2 mt-2">
+                    <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                         fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M7.6 8.5h8m-8 3.5H12m7.1-7H5c-.2 0-.5 0-.6.3-.2.1-.3.3-.3.6V15c0 .3 0 .5.3.6.1.2.4.3.6.3h4l3 4 3-4h4.1c.2 0 .5 0 .6-.3.2-.1.3-.3.3-.6V6c0-.3 0-.5-.3-.6a.9.9 0 0 0-.6-.3Z"/>
+                    </svg>
+                    <span>
+            {{group.posts}}
+          </span>
+                </div>
+
+
+                <!--post badge end-->
+                <!--event badge start-->
+                <div class="flex gap-1 items-center bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full p-2 absolute top-11 ml-2 mt-2">
+                    <svg class="w-6 h-6 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Zm3-7h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Zm-8 4h0v0h0v0Zm4 0h0v0h0v0Zm4 0h0v0h0v0Z"/>
+                    </svg>
+
+                    <span>
+                         {{group.events}}
+                     </span>
+                </div>
+                <!--event badge end-->
+                <!--modify badge start-->
+                <div *ngIf="group.currentUserTheOwner" class="flex gap-1 items-center bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full p-2 absolute top-0 right-2 ml-2 mt-2">
+
+                <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                    <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+                </svg>
+                     </span>
+                </div>
+                <!--modify badge end-->
+            </div>
+            <!-- article - end -->
+
+
+        </div>
+
+        <div class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12" *transloco="let t">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8 flex flex-col items-center">
+                <button class="text-gray-500 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" [ngClass]="" >
+                    {{t('more')}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

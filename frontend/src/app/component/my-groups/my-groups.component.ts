@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CirclesService} from "../../services/circles.service";
+import {Router} from "@angular/router";
+import {GroupListItemModel} from "../../models/group-list-item.model";
 
 @Component({
   selector: 'app-my-groups',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyGroupsComponent implements OnInit {
 
-  constructor() { }
+  groups: Array<GroupListItemModel> = [];
+  page = 0;
+  totalPages!: number;
+  constructor(private circlesService: CirclesService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.loadJoinedGroups();
   }
 
+
+  private loadJoinedGroups() {
+    this.circlesService.fetchMoreJoinedGroups(this.page)
+  }
 }
