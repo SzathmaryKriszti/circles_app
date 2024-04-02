@@ -5,6 +5,7 @@ import {WelcomeComponent} from "../component/welcome/welcome.component";
 import {LoginComponent} from "../component/login/login.component";
 import {UserProfileComponent} from "../component/user-profile/user-profile.component";
 import {GroupFormComponent} from "../component/group-form/group-form.component";
+import {MyGroupsComponent} from "../component/my-groups/my-groups.component";
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'me', component: UserProfileComponent, pathMatch: 'full'},
   {path: 'group-form', component: GroupFormComponent, pathMatch: 'full'},
   {path: 'group-form/:id', component: GroupFormComponent, pathMatch: 'full'},
+  {path: 'my-groups', component: MyGroupsComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

@@ -36,6 +36,13 @@ public class SecurityConfig {
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
                 )
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.GET, "/api/groups")
+                        .hasRole(UserRole.ROLE_USER.getDisplayRole())
+                ) .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/api/groups")
+                        .hasRole(UserRole.ROLE_USER.getDisplayRole())
+                )
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/users/registration").permitAll()
                 )
                 .authorizeHttpRequests(auth -> auth

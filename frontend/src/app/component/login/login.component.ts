@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         sessionStorage.setItem('user', JSON.stringify(response));
         this.authenticationService.isLoggedIn = true;
-        this.router.navigate(['/me']);
+        this.router.navigate(['/my-groups']);
       },
       //TODO ezt hasznalni valahol
       error: (err) => {

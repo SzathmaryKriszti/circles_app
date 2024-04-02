@@ -28,11 +28,11 @@ public class GroupController {
     }
 
     @PostMapping
-    public ResponseEntity<Group> createGroup(@RequestBody GroupCreationCommand command){
+    public ResponseEntity<Void> createGroup(@RequestBody GroupCreationCommand command){
        String username = getUsernameFromContext();
-        Group group = groupService.createGroup(command, username);
+       groupService.createGroup(command, username);
        logger.info("New group has been created");
-       return new ResponseEntity<Group>(group, HttpStatus.CREATED);
+       return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
     @GetMapping

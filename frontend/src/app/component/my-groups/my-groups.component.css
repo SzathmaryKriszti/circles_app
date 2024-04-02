@@ -1,0 +1,4 @@
+button[disabled] {
+    opacity: 0.5; /* A gomb átlátszósága 50% */
+    /*cursor: not-allowed; !* Az egérmutató a tiltott jelet mutatja *!*/
+}

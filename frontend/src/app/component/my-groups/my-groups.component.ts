@@ -3,6 +3,7 @@ import {CirclesService} from "../../services/circles.service";
 import {Router} from "@angular/router";
 import {GroupListItemModel} from "../../models/group-list-item.model";
 
+
 @Component({
   selector: 'app-my-groups',
   templateUrl: './my-groups.component.html',
@@ -22,6 +23,16 @@ export class MyGroupsComponent implements OnInit {
 
 
   private loadJoinedGroups() {
-    this.circlesService.fetchMoreJoinedGroups(this.page)
+    this.circlesService.fetchMoreJoinedGroups(this.page).subscribe({
+      next: (data) => {
+        this.groups = this.groups.concat(data.items);
+        this.totalPages = data.totalPageNumber;
+      },
+      error: err => console.warn(err)
+    });
+  }
+
+  createGroup() {
+    this.router.navigate(["/group-form"]);
   }
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CirclesService} from "../../services/circles.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-group-form',
@@ -20,7 +19,7 @@ export class GroupFormComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
 
     this.groupForm = formBuilder.group({
-      name: ['', Validators.required],
+      groupName: ['', Validators.required],
       imgUrl: ['']
     })
 
