@@ -5,6 +5,7 @@ import hu.progmasters.circlesapp.domain.Group;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
 import hu.progmasters.circlesapp.dto.outgoing.GroupListItem;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
+import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
 import hu.progmasters.circlesapp.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,5 +45,15 @@ public class GroupService {
                 .map(group -> new GroupListItem(user, group))
                 .toList();
         return new JoinedGroupList(currentPage.getTotalPages(), groups);
+    }
+
+    public NotJoinedGroupList getNotJoinedGroups(String username, Integer page) {
+        AppUser user = appUserService.findUserByUsername(username);
+        Pageable pageable = PageRequest.of(page, 7);
+        Page<Group> currentPage = groupRepository.findGroupsNotJoinedByUser(user, pageable);
+        List<GroupListItem> groups = currentPage.stream()
+                .map(group -> new GroupListItem(user, group))
+                .toList();
+        return new NotJoinedGroupList(currentPage.getTotalPages(), groups);
     }
 }

@@ -3,6 +3,7 @@ package hu.progmasters.circlesapp.controller;
 import hu.progmasters.circlesapp.domain.Group;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
+import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
 import hu.progmasters.circlesapp.service.GroupService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +41,13 @@ public class GroupController {
         String username = getUsernameFromContext();
         logger.info("Group list page is requested");
         return new ResponseEntity<>(groupService.getJoinedGroups(username, page), HttpStatus.OK);
+    }
+
+    @GetMapping("/notJoined")
+    public ResponseEntity<NotJoinedGroupList> getNotJoinedGroupList(@RequestParam Integer page) {
+        String username = getUsernameFromContext();
+        logger.info("Group list page is requested");
+        return new ResponseEntity<>(groupService.getNotJoinedGroups(username, page), HttpStatus.OK);
     }
 
     private String getUsernameFromContext(){
