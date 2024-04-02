@@ -14,6 +14,7 @@ import { UserProfileComponent } from './component/user-profile/user-profile.comp
 import {AuthInterceptor} from "./utils/auth.interceptor";
 import { GroupFormComponent } from './component/group-form/group-form.component';
 import { MyGroupsComponent } from './component/my-groups/my-groups.component';
+import { FindGroupComponent } from './component/find-group/find-group.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MyGroupsComponent } from './component/my-groups/my-groups.component';
     LoginComponent,
     UserProfileComponent,
     GroupFormComponent,
-    MyGroupsComponent
+    MyGroupsComponent,
+    FindGroupComponent
   ],
   imports: [
     BrowserModule,

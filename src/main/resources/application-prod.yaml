@@ -1,0 +1,5 @@
+cors-policies: https://circles.kriszti.app, http://18.153.231.91, http://circles.kriszti.app
+
+base-url: https://circles.kriszti.app
+
+base-url-frontend: https://circles.kriszti.app
