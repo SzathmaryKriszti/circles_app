@@ -55,5 +55,13 @@
     "createNewGroup": "Neue Gruppe erstellen",
     "owner": "Inhaber: "
 
+  },
+  "findGroupPage": {
+    "group": "Gruppenname",
+    "owner": "Inhaber",
+    "events": "Veranstaltungen",
+    "posts": "Posts",
+    "action": "Möglichkeiten",
+    "join":"Join"
   }
 }

@@ -42,7 +42,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/groups")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
                 ).authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/groups/notJoined")
+                        .requestMatchers(HttpMethod.GET, "/api/groups/notJoined")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
                 )
                 .authorizeHttpRequests(auth -> auth

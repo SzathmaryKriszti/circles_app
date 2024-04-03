@@ -55,5 +55,13 @@
     "createNewGroup": "Create new group",
     "owner": "Owner: "
 
+  },
+  "findGroupPage": {
+    "group": "Group Name",
+    "owner": "Owner",
+    "events": "Events",
+    "posts": "Posts",
+    "action": "Actions",
+    "join":"Join"
   }
 }

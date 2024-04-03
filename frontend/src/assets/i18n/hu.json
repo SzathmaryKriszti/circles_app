@@ -56,5 +56,13 @@
     "createNewGroup": "Új csoport létrehozása",
     "owner": "Létrehozta: "
 
+  },
+  "findGroupPage": {
+    "group": "Csoport neve",
+    "owner": "Létrehozta",
+    "events": "Események",
+    "posts": "Posztok",
+    "action": "Lehetõségek",
+    "join":"Csatlakozás"
   }
 }

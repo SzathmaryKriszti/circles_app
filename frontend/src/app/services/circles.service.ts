@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {AppUserProfileDetailsModel} from "../models/app-user-profile-details.model";
 import {GroupCreationModel} from "../models/group-creation.model";
 import {JoinedGroupListModel} from "../models/joined-group-list.model";
+import {NotJoinedGroupListModel} from "../models/not-joined-group-list.model";
 
 const BASE_URL: string = environment.BASE_URL;
 const USERS_BASE_URL: string = BASE_URL + '/api/users';
@@ -29,5 +30,9 @@ export class CirclesService {
 
   fetchMoreJoinedGroups(page: number):Observable<JoinedGroupListModel> {
     return this.http.get<JoinedGroupListModel>(`${GROUPS_BASE_URL + "?page="}${page}`)
+  }
+
+  fetchMoreNotJoinedGroups(page: number):Observable<NotJoinedGroupListModel> {
+    return this.http.get<NotJoinedGroupListModel>(`${GROUPS_BASE_URL + '/notJoined' + "?page="}${page}`)
   }
 }
