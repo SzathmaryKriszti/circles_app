@@ -25,7 +25,8 @@
     "enterPassword": "Please enter a password",
     "register": "Register",
     "already": "Already have an account?",
-    "login": "Login here"
+    "login": "Login here",
+    "match": "Password must match"
   },
   "navbar": {
     "account": "Account",

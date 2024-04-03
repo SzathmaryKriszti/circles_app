@@ -25,7 +25,8 @@
     "enterPassword": "Bitte, geben Sie Ihr Passwort ein",
     "register": "Registrieren",
     "already": "Hast du bereits einen Account?",
-    "login": "Anmelden hier"
+    "login": "Anmelden hier",
+    "match": "Passwort muss übereinstimmen"
   },
   "navbar": {
     "account": "Mein Account",

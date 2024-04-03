@@ -26,7 +26,8 @@
     "enterPassword": "Kérlek, add meg a jelszavad",
     "register": "Regisztrálok",
     "already": "Már van fiókod?",
-    "login": "Jelentkezz be itt!"
+    "login": "Jelentkezz be itt!",
+    "match": "A két jelszónak egyeznie kell"
   },
   "navbar": {
     "account": "Saját fiók",
