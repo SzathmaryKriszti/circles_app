@@ -42,4 +42,8 @@ export class AuthenticationService {
   logout(): Observable<any> {
     return this.http.get(BASE_URL + '/logout');
   }
+
+  validateUsername(username: string):Observable<boolean> {
+    return this.http.get<boolean>(BASE_URL + 'auth/validate-username/' + username);
+  }
 }

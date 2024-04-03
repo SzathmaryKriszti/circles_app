@@ -15,6 +15,7 @@ import {AuthInterceptor} from "./utils/auth.interceptor";
 import { GroupFormComponent } from './component/group-form/group-form.component';
 import { MyGroupsComponent } from './component/my-groups/my-groups.component';
 import { FindGroupComponent } from './component/find-group/find-group.component';
+import {UsernameValidator} from "./utils/username-validator";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { FindGroupComponent } from './component/find-group/find-group.component'
     RouterOutlet,
     FormsModule
   ],
-  providers: [{
+  providers: [
+    UsernameValidator,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
