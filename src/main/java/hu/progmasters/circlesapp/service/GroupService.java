@@ -56,4 +56,6 @@ public class GroupService {
                 .toList();
         return new NotJoinedGroupList(currentPage.getTotalPages(), groups);
     }
+
+
 }

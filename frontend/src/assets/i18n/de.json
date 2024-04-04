@@ -26,7 +26,9 @@
     "register": "Registrieren",
     "already": "Hast du bereits einen Account?",
     "login": "Anmelden hier",
-    "match": "Passwort muss übereinstimmen"
+    "match": "Passwort muss übereinstimmen",
+    "inUse": "Diese Benutzername ist besetzt",
+    "ok": "Diese Benutzername ist frei"
   },
   "navbar": {
     "account": "Mein Account",
@@ -51,7 +53,7 @@
   },
   "myGroupsPage": {
     "myGroups": "Meine Gruppen",
-    "intro": "Auf dieser Seite kannst du deine Gruppen sehen, wo du dazugestoßen hast. Erstell neue Post oder Veranstaltung, oder such nach der Posts und Veranstaltungen deiner Freunde.",
+    "intro": "Auf dieser Seite kannst du deine Gruppen sehen, wo du dazugestoßen bist. Erstell neue Posts oder Veranstaltungen oder suche nach den Posts und Veranstaltungen deiner Freunde.",
     "newGroup": "Neue Gruppe",
     "createNewGroup": "Neue Gruppe erstellen",
     "owner": "Inhaber: "

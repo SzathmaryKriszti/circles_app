@@ -34,19 +34,21 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/users")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
-                ).authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/api/users/auth/validate-username")
-                        .hasRole(UserRole.ROLE_USER.getDisplayRole())
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/groups")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
-                ) .authorizeHttpRequests(auth -> auth
+                )
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/groups")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
-                ).authorizeHttpRequests(auth -> auth
+                )
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/groups/notJoined")
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
+                )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.GET, "/api/users/auth/validate-username/{username}").permitAll()
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/users/registration").permitAll()

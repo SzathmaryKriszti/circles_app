@@ -26,7 +26,9 @@
     "register": "Register",
     "already": "Already have an account?",
     "login": "Login here",
-    "match": "Password must match"
+    "match": "Password must match",
+    "inUse": "This username is already taken",
+    "ok": "This username is available"
   },
   "navbar": {
     "account": "Account",

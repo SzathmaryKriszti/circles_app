@@ -59,4 +59,13 @@ public class AppUserService implements UserDetailsService {
         AppUser appUser = findUserByUsername(username);
         return new AppUserProfileDetails(appUser);
     }
+
+    public Boolean checkIsUsernameInUse(String username) {
+        boolean isInUse = false;
+        AppUser user = findUserByUsername(username);
+        if (user != null){
+            isInUse = true;
+        }
+        return isInUse;
+    }
 }

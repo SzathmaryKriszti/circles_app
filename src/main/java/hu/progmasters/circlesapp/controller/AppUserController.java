@@ -74,4 +74,9 @@ public class AppUserController {
         return username;
     }
 
+    @GetMapping("/auth/validate-username/{username}")
+    public ResponseEntity<Boolean> checkIsUsernameInUse(@PathVariable String username) {
+        return new ResponseEntity<Boolean>(appUserService.checkIsUsernameInUse(username), HttpStatus.OK);
+    }
+
 }

@@ -17,7 +17,7 @@ export class UsernameValidator {
     return new Promise(resolve => {
       this.debouncer = setTimeout(() => {
         this.authenticationService.validateUsername(control.value).subscribe({
-          next: usernameInUse => resolve(usernameInUse ? {usernameInUse: true} : null),
+          next: usernameInUse => resolve({usernameInUse} ),
           error: err => {
             console.error(err);
             resolve(null)

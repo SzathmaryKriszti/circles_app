@@ -27,7 +27,9 @@
     "register": "Regisztrálok",
     "already": "Már van fiókod?",
     "login": "Jelentkezz be itt!",
-    "match": "A két jelszónak egyeznie kell"
+    "match": "A két jelszónak egyeznie kell",
+    "inUse": "Ez a felhasználónév már foglalt",
+    "ok": "Ez a felhasználónév szabad"
   },
   "navbar": {
     "account": "Saját fiók",
