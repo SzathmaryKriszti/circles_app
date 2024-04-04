@@ -1,44 +1,60 @@
-<section class="bg-gray-50 dark:bg-gray-900" *transloco = "let t, read:'registrationPage'">
+<section class="bg-gray-50 dark:bg-gray-900" *transloco="let t, read:'registrationPage'">
 
   <div class="flex flex-col items-center justify-center px-6 py-0 mx-auto md:h-screen lg:py-0">
 
     <div class="p-2 space-y-0 md:space-y-6 sm:p-8">
-    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-      {{t('registration')}}
-    </h1>
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+        {{t('registration')}}
+      </h1>
     </div>
 
-    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div
+      class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
 
-
-        <form class="space-y-4 md:space-y-6" [formGroup] = "registerForm" (ngSubmit)="registerUser()">
+        <form class="space-y-4 md:space-y-6" [formGroup]="registerForm" (ngSubmit)="registerUser()">
 
           <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('full')}}</label>
+            <label for="email"
+                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('full')}}</label>
             <input
               type="text"
               name="name"
               id="name"
               formControlName="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Kovacs Andrea">
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
           </div>
 
-          <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('username')}}</label>
+          <div class="relative">
+            <label for="email"
+                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('username')}}</label>
             <input type="text"
                    name="username"
                    id="username"
                    formControlName="username"
-                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Andika">
+                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                   >
+            <svg
+              *ngIf="registerForm.get('username')?.errors?.['usernameInUse'] === false"
+              class="absolute end-2.5 bottom-2.5 w-6 h-6 text-green-700 dark:text-white right-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
+            </svg>
+
+            <svg
+              *ngIf="registerForm.get('username')?.errors?.['usernameInUse'] === true"
+              class="absolute end-2.5 bottom-2.5 w-6 h-6 text-red-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+
           </div>
 
           <small
             *ngIf="registerForm.get('username')?.errors?.['usernameInUse']"
             class="text-red-500"
           >
-           {{t('inUse')}}
+            {{t('inUse')}}
           </small>
 
 
@@ -47,9 +63,6 @@
           >
             <small class="text-green-500">
             {{t('ok')}}
-            <svg class="w-6 h-6 text-green-700 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
-            </svg>
             </small>
           </span>
 
@@ -60,11 +73,13 @@
               name="email"
               id="email"
               formControlName="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
+              class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="name@company.com">
           </div>
 
           <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('password')}}</label>
+            <label for="password"
+                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('password')}}</label>
             <input
               type="password"
               autocomplete="new-password"
@@ -75,7 +90,8 @@
           </div>
 
           <div>
-            <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('confirm')}}</label>
+            <label for="confirm-password"
+                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{t('confirm')}}</label>
             <input
               type="password"
               autocomplete="new-password"
@@ -95,11 +111,12 @@
           <button
             type="submit"
             class="bg-black disabled:bg-gray-300 text-gray-50  w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          [disabled]="!registerForm.valid"
+            [disabled]="!registerForm.valid"
           >
             {{t('register')}}</button>
           <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-            {{t('already')}} <a routerLink="/login" class="font-medium text-primary-600 hover:underline dark:text-primary-500">{{t('login')}}</a>
+            {{t('already')}} <a routerLink="/login"
+                                class="font-medium text-primary-600 hover:underline dark:text-primary-500">{{t('login')}}</a>
           </p>
         </form>
 
