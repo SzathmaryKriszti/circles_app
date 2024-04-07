@@ -6,6 +6,8 @@ import {AppUserProfileDetailsModel} from "../models/app-user-profile-details.mod
 import {GroupCreationModel} from "../models/group-creation.model";
 import {JoinedGroupListModel} from "../models/joined-group-list.model";
 import {NotJoinedGroupListModel} from "../models/not-joined-group-list.model";
+import {GroupSearchListItemModel} from "../models/group-search-list-item.model";
+import {GroupSearchListModel} from "../models/group-search-list.model";
 
 const BASE_URL: string = environment.BASE_URL;
 const USERS_BASE_URL: string = BASE_URL + '/api/users';
@@ -34,5 +36,9 @@ export class CirclesService {
 
   fetchMoreNotJoinedGroups(page: number):Observable<NotJoinedGroupListModel> {
     return this.http.get<NotJoinedGroupListModel>(`${GROUPS_BASE_URL + '/notJoined' + "?page="}${page}`)
+  }
+
+  searchGroups(keyword: string):Observable<GroupSearchListModel> {
+    return this.http.get<NotJoinedGroupListModel>(`${GROUPS_BASE_URL + '/search' + "?keyword="}${keyword}`)
   }
 }

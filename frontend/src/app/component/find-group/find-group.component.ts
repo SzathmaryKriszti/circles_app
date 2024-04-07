@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CirclesService} from "../../services/circles.service";
-import {GroupListItemModel} from "../../models/group-list-item.model";
+import {GroupSearchListItemModel} from "../../models/group-search-list-item.model";
 
 @Component({
   selector: 'app-find-group',
@@ -10,9 +10,13 @@ import {GroupListItemModel} from "../../models/group-list-item.model";
 export class FindGroupComponent implements OnInit {
 
   page = 0;
-  groups: Array<GroupListItemModel> = [];
+  groups: Array<GroupSearchListItemModel> = [];
   totalPages!: number;
-  constructor(private circlesService: CirclesService) { }
+  keyword: string = '';
+  debouncer: NodeJS.Timeout | undefined;
+
+  constructor(private circlesService: CirclesService) {
+  }
 
   ngOnInit(): void {
     this.loadGroups();
@@ -28,8 +32,20 @@ export class FindGroupComponent implements OnInit {
     });
   }
 
-  clickMore(){
-    if (this.page !== this.totalPages){
+  onSearch(keyword: string) {
+    clearTimeout(this.debouncer);
+    this.debouncer = setTimeout(() => {
+      this.circlesService.searchGroups(keyword).subscribe({
+        next: (data) => {
+          this.groups = this.groups = data.items;
+        },
+        error: err => console.warn(err)
+      });
+    }, 200);
+  }
+
+  clickMore() {
+    if (this.page !== this.totalPages) {
       this.page++;
       this.loadGroups();
     } else {
