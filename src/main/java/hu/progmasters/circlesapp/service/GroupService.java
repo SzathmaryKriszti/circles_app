@@ -1,16 +1,25 @@
 package hu.progmasters.circlesapp.service;
 
+import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
+import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import hu.progmasters.circlesapp.domain.AppUser;
 import hu.progmasters.circlesapp.domain.Group;
+import hu.progmasters.circlesapp.domain.elastic.GroupSearch;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
 import hu.progmasters.circlesapp.dto.outgoing.GroupListItem;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
 import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
 import hu.progmasters.circlesapp.repository.GroupRepository;
+import hu.progmasters.circlesapp.repository.elastic.GroupSearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.client.elc.NativeQuery;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,11 +31,15 @@ public class GroupService {
 
     private final GroupRepository groupRepository;
     private final AppUserService appUserService;
+    private final GroupSearchRepository groupSearchRepository;
+    private final ElasticsearchOperations elasticsearchOperations;
 
     @Autowired
-    public GroupService(GroupRepository groupRepository, AppUserService appUserService) {
+    public GroupService(GroupRepository groupRepository, AppUserService appUserService, GroupSearchRepository groupSearchRepository, ElasticsearchOperations elasticsearchOperations) {
         this.groupRepository = groupRepository;
         this.appUserService = appUserService;
+        this.groupSearchRepository = groupSearchRepository;
+        this.elasticsearchOperations = elasticsearchOperations;
     }
 
     public Group createGroup(GroupCreationCommand command, String username) {
@@ -34,6 +47,9 @@ public class GroupService {
         Group group = groupRepository.save(new Group(command, appUser));
         group.setOwner(appUser);
         appUser.addGroup(group);
+
+        groupSearchRepository.save(new GroupSearch(group.getId(), group.getGroupName()));
+
         return group;
     }
 
@@ -58,4 +74,25 @@ public class GroupService {
     }
 
 
+    public List<GroupSearch> search(String keywords) {
+        Query query = MatchQuery.of(m ->
+                        m.field("name")
+                                .query(keywords)
+                                .operator(Operator.Or)
+                                .boost(null))
+                ._toQuery();
+
+        NativeQuery nativeQuery = NativeQuery.builder().withQuery(query).build();
+        SearchHits<GroupSearch> result = this.elasticsearchOperations.search(nativeQuery, GroupSearch.class);
+        return result.stream().map(SearchHit::getContent).toList();
+
+
+
+//        List<SearchGroupListItem> gs = result.stream()
+//                .map(SearchHit::getContent)
+//                .map(SearchGroupListItem::new)
+//                .toList();
+//
+////        return new SearchGroupList(gs);
+    }
 }

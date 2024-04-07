@@ -48,6 +48,10 @@ public class SecurityConfig {
                         .hasRole(UserRole.ROLE_USER.getDisplayRole())
                 )
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.GET, "/api/groups/search")
+                        .hasRole(UserRole.ROLE_USER.getDisplayRole())
+                )
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/api/users/auth/validate-username/{username}").permitAll()
                 )
                 .authorizeHttpRequests(auth -> auth

@@ -1,6 +1,7 @@
 package hu.progmasters.circlesapp.controller;
 
 import hu.progmasters.circlesapp.domain.Group;
+import hu.progmasters.circlesapp.domain.elastic.GroupSearch;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
 import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
@@ -14,6 +15,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -48,6 +51,12 @@ public class GroupController {
         String username = getUsernameFromContext();
         logger.info("Group list page is requested");
         return new ResponseEntity<>(groupService.getNotJoinedGroups(username, page), HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<GroupSearch>> search(@RequestParam String keyword) {
+        logger.info("Group search is requested by keyword: '"+keyword+"'");
+        return new ResponseEntity<>(groupService.search(keyword), HttpStatus.OK);
     }
 
     private String getUsernameFromContext(){
