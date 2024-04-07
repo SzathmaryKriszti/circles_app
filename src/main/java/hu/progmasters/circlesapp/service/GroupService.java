@@ -7,9 +7,7 @@ import hu.progmasters.circlesapp.domain.AppUser;
 import hu.progmasters.circlesapp.domain.Group;
 import hu.progmasters.circlesapp.domain.elastic.GroupSearch;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
-import hu.progmasters.circlesapp.dto.outgoing.GroupListItem;
-import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
-import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
+import hu.progmasters.circlesapp.dto.outgoing.*;
 import hu.progmasters.circlesapp.repository.GroupRepository;
 import hu.progmasters.circlesapp.repository.elastic.GroupSearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +72,7 @@ public class GroupService {
     }
 
 
-    public List<GroupSearch> search(String keywords) {
+    public GroupSearchList search(String keywords) {
         Query query = MatchQuery.of(m ->
                         m.field("name")
                                 .query(keywords)
@@ -83,16 +81,15 @@ public class GroupService {
                 ._toQuery();
 
         NativeQuery nativeQuery = NativeQuery.builder().withQuery(query).build();
-        SearchHits<GroupSearch> result = this.elasticsearchOperations.search(nativeQuery, GroupSearch.class);
-        return result.stream().map(SearchHit::getContent).toList();
 
+        SearchHits<GroupSearch> result =
+                this.elasticsearchOperations.search(nativeQuery, GroupSearch.class);
 
+        List<GroupSearchListItem> groupSearchListItems = result.stream()
+                .map(SearchHit::getContent)
+                .map(GroupSearchListItem::new)
+                .toList();
 
-//        List<SearchGroupListItem> gs = result.stream()
-//                .map(SearchHit::getContent)
-//                .map(SearchGroupListItem::new)
-//                .toList();
-//
-////        return new SearchGroupList(gs);
+        return new GroupSearchList(groupSearchListItems);
     }
 }

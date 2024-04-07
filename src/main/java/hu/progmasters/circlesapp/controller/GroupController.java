@@ -3,6 +3,7 @@ package hu.progmasters.circlesapp.controller;
 import hu.progmasters.circlesapp.domain.Group;
 import hu.progmasters.circlesapp.domain.elastic.GroupSearch;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
+import hu.progmasters.circlesapp.dto.outgoing.GroupSearchList;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
 import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
 import hu.progmasters.circlesapp.service.GroupService;
@@ -54,7 +55,7 @@ public class GroupController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<GroupSearch>> search(@RequestParam String keyword) {
+    public ResponseEntity<GroupSearchList> search(@RequestParam String keyword) {
         logger.info("Group search is requested by keyword: '"+keyword+"'");
         return new ResponseEntity<>(groupService.search(keyword), HttpStatus.OK);
     }
