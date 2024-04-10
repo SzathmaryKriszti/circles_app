@@ -1,9 +1,9 @@
 <section class="bg-gray-50 dark:bg-gray-900" *transloco="let t, read:'registrationPage'">
 
-  <div class="flex flex-col items-center justify-center px-6 py-0 mx-auto md:h-screen lg:py-0">
+  <div class="flex flex-col items-center justify-center px-6 py-0 mx-auto md:max-h-screen lg:py-0">
 
-    <div class="p-2 space-y-0 md:space-y-6 sm:p-8">
-      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+    <div class="p-2 space-y-0 md:space-y-6 ">
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white p-6">
         {{t('registration')}}
       </h1>
     </div>
@@ -111,7 +111,7 @@
           <button
             type="submit"
             class="bg-black disabled:bg-gray-300 text-gray-50  w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            [disabled]="!registerForm.valid"
+
           >
             {{t('register')}}</button>
           <p class="text-sm font-light text-gray-500 dark:text-gray-400">
