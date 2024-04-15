@@ -76,7 +76,8 @@ public class GroupService {
         Query query = MatchQuery.of(m ->
                         m.field("name")
                                 .query(keywords)
-                                .operator(Operator.Or)
+                                .operator(Operator.And)
+                                .fuzziness("AUTO")
                                 .boost(null))
                 ._toQuery();
 
