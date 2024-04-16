@@ -7,6 +7,7 @@ import {UserProfileComponent} from "../component/user-profile/user-profile.compo
 import {GroupFormComponent} from "../component/group-form/group-form.component";
 import {MyGroupsComponent} from "../component/my-groups/my-groups.component";
 import {FindGroupComponent} from "../component/find-group/find-group.component";
+import {SearchGroupComponent} from "../component/search-group/search-group.component";
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'group-form/:id', component: GroupFormComponent, pathMatch: 'full'},
   {path: 'my-groups', component: MyGroupsComponent, pathMatch: 'full'},
   {path: 'find-group', component: FindGroupComponent, pathMatch: 'full'},
+  {path: 'search-group', component: SearchGroupComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

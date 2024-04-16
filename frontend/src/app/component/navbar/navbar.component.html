@@ -98,7 +98,14 @@
         </li>
         <li>
           <a routerLink="/find-group" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 dark:text-white md:dark:hover:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-            {{translocoService.getActiveLang() === 'en' ? 'Find Group' : ''}}
+            {{translocoService.getActiveLang() === 'en' ? 'All Groups' : ''}}
+            {{translocoService.getActiveLang() === 'hu' ? 'Összes csoport' : ''}}
+            {{translocoService.getActiveLang() === 'de' ? 'Alle Gruppen' : ''}}
+          </a>
+        </li>
+        <li>
+          <a routerLink="/search-group" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 dark:text-white md:dark:hover:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+            {{translocoService.getActiveLang() === 'en' ? 'Search Group' : ''}}
             {{translocoService.getActiveLang() === 'hu' ? 'Csoportkereső' : ''}}
             {{translocoService.getActiveLang() === 'de' ? 'Gruppe finden' : ''}}
           </a>
