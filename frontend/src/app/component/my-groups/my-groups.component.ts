@@ -27,6 +27,7 @@ export class MyGroupsComponent implements OnInit {
       next: (data) => {
         this.groups = this.groups.concat(data.items);
         this.totalPages = data.totalPageNumber;
+        console.log("this.page: " + this.page + ", this.totalPages: " + this.totalPages)
       },
       error: err => console.warn(err)
     });
@@ -34,5 +35,14 @@ export class MyGroupsComponent implements OnInit {
 
   createGroup() {
     this.router.navigate(["/group-form"]);
+  }
+
+  clickMore(){
+    if (this.page !== this.totalPages){
+      this.page++;
+      this.loadJoinedGroups();
+    } else {
+      console.log("No more pages")
+    }
   }
 }
