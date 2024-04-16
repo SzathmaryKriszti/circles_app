@@ -54,7 +54,11 @@ public class GroupService {
 
     public JoinedGroupList getJoinedGroups(String username, Integer page) {
        AppUser user = appUserService.findUserByUsername(username);
-        Pageable pageable = PageRequest.of(page, 7);
+       int pagesToLoad = 7;
+       if (page > 0) {
+           pagesToLoad = 8;
+       }
+        Pageable pageable = PageRequest.of(page, pagesToLoad);
         Page<Group> currentPage = groupRepository.findGroupsJoinedByUser(user, pageable);
         List<GroupListItem> groups = currentPage.stream()
                 .map(group -> new GroupListItem(user, group))
