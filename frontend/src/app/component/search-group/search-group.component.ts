@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {GroupSearchListItemModel} from "../../models/group-search-list-item.model";
 import {CirclesService} from "../../services/circles.service";
 
@@ -7,30 +7,16 @@ import {CirclesService} from "../../services/circles.service";
   templateUrl: './search-group.component.html',
   styleUrls: ['./search-group.component.css']
 })
-export class SearchGroupComponent implements OnInit {
+export class SearchGroupComponent {
 
-  page = 0;
   groups: Array<GroupSearchListItemModel> = [];
-  totalPages!: number;
   keyword: string = '';
   debouncer: NodeJS.Timeout | undefined;
 
   constructor(private circlesService: CirclesService) {
   }
 
-  ngOnInit(): void {
-    this.loadGroups();
-  }
 
-  loadGroups() {
-    this.circlesService.fetchMoreNotJoinedGroups(this.page).subscribe({
-      next: (data) => {
-        this.groups = this.groups.concat(data.items);
-        this.totalPages = data.totalPageNumber;
-      },
-      error: err => console.warn(err)
-    });
-  }
 
   onSearch(keyword: string) {
     clearTimeout(this.debouncer);
