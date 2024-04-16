@@ -107,7 +107,7 @@
 
         <div class="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12" *transloco="let t">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8 flex flex-col items-center">
-                <button class="text-gray-500 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" [ngClass]="" >
+                <button *ngIf="page +1 < totalPages" (click)="clickMore()" class="h-10 px-5 m-2 text-purple-100 transition-colors duration-150 bg-purple-600 rounded-lg focus:shadow-outline hover:bg-purple-700">
                     {{t('more')}}
                 </button>
             </div>
