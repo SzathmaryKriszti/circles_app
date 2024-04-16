@@ -17,6 +17,7 @@ import { MyGroupsComponent } from './component/my-groups/my-groups.component';
 import { FindGroupComponent } from './component/find-group/find-group.component';
 import {UsernameValidator} from "./utils/username-validator";
 import { SearchGroupComponent } from './component/search-group/search-group.component';
+import { GroupComponent } from './component/group/group.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchGroupComponent } from './component/search-group/search-group.comp
     GroupFormComponent,
     MyGroupsComponent,
     FindGroupComponent,
-    SearchGroupComponent
+    SearchGroupComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,
