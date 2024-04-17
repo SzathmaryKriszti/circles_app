@@ -67,5 +67,20 @@
     "posts": "Posztok",
     "action": "Lehetõségek",
     "join":"Csatlakozás"
+  },
+  "groupDetailsPage": {
+    "posts": "Posztok",
+    "introPost": "Ebben a listában láthatod a csoport legfrissebb posztjait, a továbbiakért kattints a ‘Több’ gombra.",
+    "more": "Több",
+    "events": "Események",
+    "introEvent": "Ebben a listában láthatod a csoport következõ eseményeit, a továbbiakért kattints a ‘Több’ gombra.",
+    "introAlbum": "Ebben a listában láthatod a csoport albumait, a továbbiakért kattints a 'Több' gombra.",
+    "info": "Csoport infók",
+    "members": "Tagok",
+    "topMembers": "Kiemelt tagok",
+    "owner": "Létrehozta",
+    "event": "Esemény",
+    "leave": "Kilépés a csoportból",
+    "albums": "Albumok"
   }
 }

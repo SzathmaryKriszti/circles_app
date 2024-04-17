@@ -66,5 +66,18 @@
     "posts": "Posts",
     "action": "Möglichkeiten",
     "join":"Join"
+  },
+  "groupDetailsPage": {
+    "posts": "Posts",
+    "introPost": "Dies sind die neuesten Posts der Gruppe. Klick auf ‘Mehr’, um weitere Beiträge und Interaktionen anzuzeigen.",
+    "more": "Mehr",
+    "events": "Veranstaltungen",
+    "introEvent": "Dies sind die neuesten Posts der Gruppe. Klick auf ‘Mehr’, um weitere Beiträge und Interaktionen anzuzeigen.",
+    "info": "Gruppe Informationen",
+    "members": "Mitglieder",
+    "topMembers": "Aktivsten Mitglieder",
+    "owner": "Inhaber",
+    "event": "Veranstaltung",
+    "leave": "Gruppe verlassen"
   }
 }

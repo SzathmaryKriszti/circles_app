@@ -66,5 +66,20 @@
     "posts": "Posts",
     "action": "Actions",
     "join":"Join"
+  },
+  "groupDetailsPage": {
+    "posts": "Posts",
+    "introPost": "These are the group’s latest posts. Click ‘More’ for further posts and interactions.",
+    "more": "More",
+    "events": "Events",
+    "introEvent": "These are the group’s upcoming events. Click ‘More’ for further events and interactions.",
+    "introAlbum": "These are the group’s albums. Click ‘More’ for further albums and interactions.",
+    "info": "Group Info",
+    "members": "Members",
+    "topMembers": "Top members",
+    "owner": "Owner",
+    "event": "Events",
+    "leave": "Leave group",
+    "albums": "Albums"
   }
 }
