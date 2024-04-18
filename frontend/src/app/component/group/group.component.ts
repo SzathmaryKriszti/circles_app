@@ -15,9 +15,9 @@ export class GroupComponent implements OnInit {
 
   groupId!: number;
   groupDetails!: GroupDetailsItemModel;
-  posts!: PostListItemModel;
-  events!: EventListItemModel;
-  members!: MemberListItemModel;
+  posts!: PostListItemModel[];
+  events!: EventListItemModel[];
+  members!: MemberListItemModel[];
 
   constructor(private route: ActivatedRoute,
               private circlesService: CirclesService) {
@@ -39,6 +39,7 @@ export class GroupComponent implements OnInit {
     this.circlesService.fetchGroupDetails(this.groupId).subscribe({
       next: (data: GroupDetailsItemModel) => {
         this.groupDetails = data;
+        this.posts = data.posts.items;
       },
       error: err => console.error(err)
     });
