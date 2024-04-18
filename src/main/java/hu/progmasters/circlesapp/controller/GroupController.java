@@ -1,8 +1,7 @@
 package hu.progmasters.circlesapp.controller;
 
-import hu.progmasters.circlesapp.domain.Group;
-import hu.progmasters.circlesapp.domain.elastic.GroupSearch;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
+import hu.progmasters.circlesapp.dto.outgoing.GroupDetailsItem;
 import hu.progmasters.circlesapp.dto.outgoing.GroupSearchList;
 import hu.progmasters.circlesapp.dto.outgoing.JoinedGroupList;
 import hu.progmasters.circlesapp.dto.outgoing.NotJoinedGroupList;
@@ -16,8 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -33,11 +31,11 @@ public class GroupController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createGroup(@RequestBody GroupCreationCommand command){
-       String username = getUsernameFromContext();
-       groupService.createGroup(command, username);
-       logger.info("New group has been created");
-       return new ResponseEntity<Void>(HttpStatus.CREATED);
+    public ResponseEntity<Void> createGroup(@RequestBody GroupCreationCommand command) {
+        String username = getUsernameFromContext();
+        groupService.createGroup(command, username);
+        logger.info("New group has been created");
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -56,19 +54,31 @@ public class GroupController {
 
     @GetMapping("/search")
     public ResponseEntity<GroupSearchList> search(@RequestParam String keyword) {
-        logger.info("Group search is requested by keyword: '"+keyword+"'");
+        logger.info("Group search is requested by keyword: '" + keyword + "'");
         return new ResponseEntity<>(groupService.search(keyword), HttpStatus.OK);
     }
 
-    private String getUsernameFromContext(){
+    private String getUsernameFromContext() {
         String username = null;
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.getPrincipal() instanceof UserDetails loggedInUser){
+        if (authentication.getPrincipal() instanceof UserDetails loggedInUser) {
             username = loggedInUser.getUsername();
         }
         return username;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<GroupDetailsItem> getGroupDetails(@PathVariable Long id) {
+        logger.info("Group details are requested");
+
+        Optional<GroupDetailsItem> optionalGroupDetails = groupService.getGroupDetails(id);
+
+        if (optionalGroupDetails.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        GroupDetailsItem groupDetails = optionalGroupDetails.get();
+        return new ResponseEntity<>(groupDetails, HttpStatus.OK);
+    }
 
 }
