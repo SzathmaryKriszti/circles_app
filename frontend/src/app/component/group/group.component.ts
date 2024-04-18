@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CirclesService} from "../../services/circles.service";
 import {GroupDetailsItemModel} from "../../models/group-details-item.model";
+import {PostListItemModel} from "../../models/post-list-item.model";
+import {EventListItemModel} from "../../models/event-list-item.model";
+import {MemberListItemModel} from "../../models/member-list-item.model";
 
 @Component({
   selector: 'app-group',
@@ -12,6 +15,9 @@ export class GroupComponent implements OnInit {
 
   groupId!: number;
   groupDetails!: GroupDetailsItemModel;
+  posts!: PostListItemModel;
+  events!: EventListItemModel;
+  members!: MemberListItemModel;
 
   constructor(private route: ActivatedRoute,
               private circlesService: CirclesService) {

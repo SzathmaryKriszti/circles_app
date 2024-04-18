@@ -17,7 +17,7 @@
       <!-- text start -->
       <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
 
-        <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">{{groupDetails?.groupName}}</h1>
+        <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">{{groupDetails.groupName}}</h1>
 
 
       </div>
@@ -32,18 +32,25 @@
 <div class="bg-white py-6 sm:py-8 lg:py-12">
 
   <!-- posts - start -->
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8" >
     <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Posts</h2>
 
     <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
       <!-- image - start -->
-      <a href="#" class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+      <!-- article - start -->
+      <a href="#" class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
         <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
 
-        <span class="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">VR</span>
+        <div class="relative mt-auto p-4">
+          <span class="block text-sm text-gray-200">July 19, 2021</span>
+          <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">New trends in Tech</h2>
+
+          <span class="font-semibold text-indigo-300">Read more</span>
+        </div>
       </a>
+      <!-- article - end -->
     </div>
     <div class="flex items-start justify-between gap-8 sm:items-center">
       <p class="max-w-screen-sm text-sm text-gray-500 lg:text-base">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text.</p>
@@ -60,13 +67,20 @@
 
     <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
       <!-- image - start -->
-      <a href="#" class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
+      <!-- article - start -->
+      <a href="#" class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
         <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
 
-        <span class="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">VR</span>
+        <div class="relative mt-auto p-4">
+          <span class="block text-sm text-gray-200">July 19, 2021</span>
+          <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">New trends in Tech</h2>
+
+          <span class="font-semibold text-indigo-300">Read more</span>
+        </div>
       </a>
+      <!-- article - end -->
 
     </div>
     <div class="flex items-start justify-between gap-8 sm:items-center">
