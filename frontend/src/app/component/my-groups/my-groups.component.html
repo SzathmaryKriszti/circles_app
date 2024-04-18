@@ -40,7 +40,7 @@
 
 
             <div *ngFor="let group of groups" class="relative" routerLink="/group/{{group.id}}">
-                <a routerLink="/groupOverview/{{group.id}}"
+                <a routerLink="/group/{{group.id}}"
                    class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
                     <img [src]="group.imgUrl" alt=""
                          class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
