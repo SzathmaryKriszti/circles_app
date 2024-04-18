@@ -7,7 +7,7 @@
 
     <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
       <!-- image - start -->
-      <img src="https://images.unsplash.com/photo-1618004652321-13a63e576b80?auto=format&q=75&fit=crop&w=1500" loading="lazy" alt="Photo by Fakurian Design" class="absolute inset-0 h-full w-full object-cover object-center" />
+      <img [src]="groupDetails?.imgUrl" loading="lazy" alt="image url" class="absolute inset-0 h-full w-full object-cover object-center" />
       <!-- image - end -->
 
       <!-- overlay - start -->
@@ -17,7 +17,7 @@
       <!-- text start -->
       <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
 
-        <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">{{groupDetails.groupName}}</h1>
+        <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">{{groupDetails?.groupName}}</h1>
 
 
       </div>
@@ -32,14 +32,14 @@
 <div class="bg-white py-6 sm:py-8 lg:py-12">
 
   <!-- posts - start -->
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8" >
-    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Posts</h2>
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8" *transloco="let t, read:'groupDetailsPage'">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">{{t('posts')}}</h2>
 
     <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
       <!-- image - start -->
       <!-- article - start -->
-      <a href="#" class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
-        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+      <a class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
 
@@ -47,46 +47,46 @@
           <span class="block text-sm text-gray-200">July 19, 2021</span>
           <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">New trends in Tech</h2>
 
-          <span class="font-semibold text-indigo-300">Read more</span>
+          <span class="font-semibold text-indigo-300">Krisztina Szathmary</span>
         </div>
       </a>
       <!-- article - end -->
     </div>
     <div class="flex items-start justify-between gap-8 sm:items-center">
-      <p class="max-w-screen-sm text-sm text-gray-500 lg:text-base">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text.</p>
+      <p class="max-w-screen-sm text-sm text-gray-500 lg:text-base">{{t('introPost')}}</p>
 
-      <a href="#" class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">More</a>
+      <a href="#" class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">{{t('more')}}</a>
     </div>
   </div>
   <!-- posts - end -->
 
 
   <!-- events - start -->
-  <div class="p-8 mx-auto max-w-screen-2xl px-4 md:px-8">
-    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Events</h2>
+  <div class="p-8 mx-auto max-w-screen-2xl px-4 md:px-8" *transloco="let t, read:'groupDetailsPage'">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">{{t('events')}}</h2>
 
     <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
       <!-- image - start -->
       <!-- article - start -->
-      <a href="#" class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
-        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+      <a class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96">
+        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
         <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent md:via-transparent"></div>
 
         <div class="relative mt-auto p-4">
           <span class="block text-sm text-gray-200">July 19, 2021</span>
-          <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">New trends in Tech</h2>
+          <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">Party On Friday</h2>
 
-          <span class="font-semibold text-indigo-300">Read more</span>
+          <span class="font-semibold text-indigo-300">Krisztina Szathmary</span>
         </div>
       </a>
       <!-- article - end -->
 
     </div>
     <div class="flex items-start justify-between gap-8 sm:items-center">
-      <p class="max-w-screen-sm text-sm text-gray-500 lg:text-base">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text.</p>
+      <p class="max-w-screen-sm text-sm text-gray-500 lg:text-base">{{t('introEvent')}}</p>
 
-      <a href="#" class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">More</a>
+      <a href="#" class="inline-block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base">{{t('more')}}</a>
     </div>
   </div>
 <!--events end-->
@@ -97,41 +97,40 @@
 
 
 <!-- stats - start -->
-<div class="bg-white py-6 sm:py-8 lg:py-12">
+<div class="bg-white py-6 sm:py-8 lg:py-12" *transloco="let t, read:'groupDetailsPage'">
   <div class="mx-auto max-w-screen-lg px-4 md:px-8">
     <!-- text - start -->
     <div class="mb-8 md:mb-12">
-      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Adatok</h2>
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">{{t('info')}}</h2>
 
-      <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
     </div>
     <!-- text - end -->
 
-    <div class="grid grid-cols-2 gap-6 rounded-lg bg-indigo-500 p-6 md:grid-cols-4 md:gap-8 md:p-8">
+    <div class="grid grid-cols-2 gap-0 rounded-lg bg-indigo-500 p-6 md:grid-cols-4 md:gap-8 md:p-8">
       <!-- stat - start -->
       <div class="flex flex-col items-center">
-        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">200</div>
-        <div class="text-sm text-indigo-200 sm:text-base">People</div>
+        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">{{groupDetails.members.memberCount}}</div>
+        <div class="text-sm text-indigo-200 sm:text-base">{{t('members')}}</div>
       </div>
       <!-- stat - end -->
 
       <!-- stat - start -->
       <div class="flex flex-col items-center">
-        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">500+</div>
-        <div class="text-sm text-indigo-200 sm:text-base">People</div>
+        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">{{groupDetails.posts.postCount}}</div>
+        <div class="text-sm text-indigo-200 sm:text-base">{{t('posts')}}</div>
       </div>
 
       <!-- stat - start -->
       <div class="flex flex-col items-center">
-        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">1000+</div>
-        <div class="text-sm text-indigo-200 sm:text-base">Customers</div>
+        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">{{groupDetails.events.eventCount}}</div>
+        <div class="text-sm text-indigo-200 sm:text-base">{{t('event')}}</div>
       </div>
       <!-- stat - end -->
 
       <!-- stat - start -->
-      <div class="flex flex-col items-center">
-        <div class="text-xl font-bold text-white sm:text-2xl md:text-3xl">A couple</div>
-        <div class="text-sm text-indigo-200 sm:text-base">Coffee breaks</div>
+      <div class="flex flex-col items-center text-center">
+        <div class="text-xl font-bold text-white sm:text-2xl md:text-2xl  w-fit">{{groupDetails.owner}}</div>
+        <div class="text-sm text-indigo-200 sm:text-base">{{t('owner')}}</div>
       </div>
       <!-- stat - end -->
     </div>

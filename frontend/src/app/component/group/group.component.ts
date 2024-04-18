@@ -39,7 +39,9 @@ export class GroupComponent implements OnInit {
     this.circlesService.fetchGroupDetails(this.groupId).subscribe({
       next: (data: GroupDetailsItemModel) => {
         this.groupDetails = data;
-        this.posts = data.posts.items;
+        this.posts = data.posts.posts;
+        this.events = data.events.events;
+        this.members = data.members.members;
       },
       error: err => console.error(err)
     });
