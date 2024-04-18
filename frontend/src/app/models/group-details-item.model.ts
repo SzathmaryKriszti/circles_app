@@ -1,6 +1,6 @@
-import {EventListItemModel} from "./event-list-item.model";
-import {PostListItemModel} from "./post-list-item.model";
-import {MemberListItemModel} from "./member-list-item.model";
+import {EventListModel} from "./event-list.model";
+import {PostListModel} from "./post-list.model";
+import {MemberListModel} from "./member-list.model";
 
 export interface GroupDetailsItemModel {
   id: number;
@@ -8,11 +8,8 @@ export interface GroupDetailsItemModel {
   imgUrl: string;
   createdAt: string;
   owner: string;
-  memberCount: number;
-  eventCount: number;
-  postCount: number;
-  events: EventListItemModel[];
-  posts: PostListItemModel[];
-  members: MemberListItemModel[];
+  events: EventListModel;
+  posts: PostListModel;
+  members: MemberListModel;
 
 }
