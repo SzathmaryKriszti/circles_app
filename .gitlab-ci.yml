@@ -1,6 +1,6 @@
 run_tests:
     image: maven:3-amazoncorretto-17
     services:
-        - mysql:8
+        - mysql
     script:
         - mvn test 
