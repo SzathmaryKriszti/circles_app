@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CirclesService} from "../../services/circles.service";
 import {GroupListItemModel} from "../../models/group-list-item.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-find-group',
@@ -8,11 +9,13 @@ import {GroupListItemModel} from "../../models/group-list-item.model";
   styleUrls: ['./find-group.component.css']
 })
 export class FindGroupComponent implements OnInit {
-
   page = 0;
   groups: Array<GroupListItemModel> = [];
   totalPages!: number;
-  constructor(private circlesService: CirclesService) { }
+
+  constructor(private circlesService: CirclesService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loadGroups();
@@ -28,12 +31,20 @@ export class FindGroupComponent implements OnInit {
     });
   }
 
-  clickMore(){
-    if (this.page !== this.totalPages){
+  clickMore() {
+    if (this.page !== this.totalPages) {
       this.page++;
       this.loadGroups();
     } else {
       console.log("No more pages")
     }
   }
+
+  joinGroup(groupId: number) {
+     this.circlesService.joinGroup(groupId).subscribe({
+       next: value => this.router.navigate(['/my-groups']),
+       error: err => console.log(err)
+     });
+  }
+
 }

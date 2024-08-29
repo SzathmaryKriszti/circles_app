@@ -52,6 +52,9 @@ public class Group {
         this.members.add(user);
     }
 
+    public Group(Group group) {
+
+    }
 
 
     public Long getId() {
