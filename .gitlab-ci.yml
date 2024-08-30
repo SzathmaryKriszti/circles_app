@@ -12,7 +12,7 @@ run_tests:
 build:
   stage: build
   script:
-    - ng build
+    - mvn clean package
     - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
 
 deploy:
