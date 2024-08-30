@@ -1,5 +1,6 @@
 stages:
   - test
+  - build
   - deploy
 
 run_tests:
@@ -8,10 +9,19 @@ run_tests:
   script:
     - mvn test
 
+build:
+  stage: build
+  script:
+    - ng build
+
 deploy:
   stage: deploy
   script:
-    - mvn build
-    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
+    # Kill running process on server
+    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app "~/shutdown.sh ~/ircles-app-1.0-SNAPSHOT.jar"
+    # Copy backend files
+    - scp -i $SSH_KEY -r ./target/circles-app-1.0-SNAPSHOT.jar ubuntu@$circles.kriszti.app:~
+    # Start backend server
+    - ssh -i $SSH_KEY ubuntu@$circles.kriszti.app "~/startup.sh ~/circles-app-1.0-SNAPSHOT.jar"
     
     
