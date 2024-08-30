@@ -13,11 +13,12 @@ build:
   stage: build
   script:
     - mvn clean package
-    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
+    
 
 deploy:
   stage: deploy
   script:
+    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
     # Kill running process on server
     - ssh -i $SSH_KEY ubuntu@circles.kriszti.app "~/shutdown.sh ~/circles-app-1.0-SNAPSHOT.jar"
     # Copy backend files
