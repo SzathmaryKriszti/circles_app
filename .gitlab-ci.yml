@@ -15,17 +15,17 @@ build:
   script:
     - mvn clean package
     # Copy backend files
-    - scp -i $SSH_KEY -r ./target/circles-app-1.0-SNAPSHOT.jar ubuntu@$circles.kriszti.app:~
+    - scp -i $SSH_KEY -r ./target/circles-app-1.0-SNAPSHOT.jar ubuntu@$18.153.231.91:~
     
 
 deploy:
   stage: deploy
   image: maven:3.9.9-amazoncorretto-17
   script:
-    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
+    - ssh -i $SSH_KEY ubuntu@18.153.231.91
     # Kill running process on server
-    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app "~/shutdown.sh ~/circles-app-1.0-SNAPSHOT.jar"
+    - ssh -i $SSH_KEY ubuntu@18.153.231.91 "~/shutdown.sh ~/circles-app-1.0-SNAPSHOT.jar"
     # Start backend server
-    - ssh -i $SSH_KEY ubuntu@$circles.kriszti.app "~/startup.sh ~/circles-app-1.0-SNAPSHOT.jar"
+    - ssh -i $SSH_KEY ubuntu@$18.153.231.91 "~/startup.sh ~/circles-app-1.0-SNAPSHOT.jar"
     
     
