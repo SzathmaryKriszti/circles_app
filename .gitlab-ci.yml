@@ -1,15 +1,15 @@
-variables:
-    IMAGE_NAME: krisztiszathmary/circles_app_repository
-    IMAGE_TAG: java-app-1.0
+stages:
+  - test
+  - deploy
 
 run_tests:
+  stage: test
   image: maven:3.9.9-amazoncorretto-17
   script:
     - mvn test
 
-build_image:
-  image: docker:20.10.16
-  before_script:
-    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+deploy:
+  stage: deploy
   script:
-    - docker push $IMAGE_NAME:$IMAGE_TAG
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY root@18.153.231.91
+    - mvn build
