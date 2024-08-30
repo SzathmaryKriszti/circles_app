@@ -11,5 +11,6 @@ run_tests:
 deploy:
   stage: deploy
   script:
-    - ssh -i $SSH_KEY ubuntu@18.153.231.91
+    - ssh -i $SSH_KEY ubuntu@circles.kriszti.app
     - mvn build
+    
