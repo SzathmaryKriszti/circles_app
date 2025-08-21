@@ -1,10 +1,12 @@
 package hu.progmasters.circlesapp.service;
 
+import hu.progmasters.circlesapp.config.RabbitConfig;
 import hu.progmasters.circlesapp.domain.AppUser;
 import hu.progmasters.circlesapp.domain.Group;
 import hu.progmasters.circlesapp.dto.incoming.GroupCreationCommand;
 import hu.progmasters.circlesapp.dto.outgoing.*;
 import hu.progmasters.circlesapp.repository.GroupRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -22,12 +26,15 @@ public class GroupService {
 
     private final GroupRepository groupRepository;
     private final AppUserService appUserService;
+    private final RabbitTemplate rabbitTemplate;
+
 
 
     @Autowired
-    public GroupService(GroupRepository groupRepository, AppUserService appUserService) {
+    public GroupService(GroupRepository groupRepository, AppUserService appUserService, RabbitTemplate rabbitTemplate) {
         this.groupRepository = groupRepository;
         this.appUserService = appUserService;
+        this.rabbitTemplate = rabbitTemplate;
 
     }
 
@@ -36,6 +43,15 @@ public class GroupService {
         Group group = groupRepository.save(new Group(command, appUser));
         group.setOwner(appUser);
         appUser.addGroup(group);
+
+        System.out.println("Group created by " + group.getGroupName());
+
+        // RabbitMQ message sending
+        Map<String, String> message = new HashMap<>();
+        message.put("groupName", group.getGroupName());
+
+        rabbitTemplate.convertAndSend(RabbitConfig.EXCHANGE, "group.created", message);
+        System.out.println("Message sent to RabbitMQ about group creation");
 
         return group;
     }
